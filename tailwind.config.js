@@ -3,6 +3,9 @@ export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		extend: {
+			screens: {
+				'nav': '840px'
+			},
 			colors: {
 				cyber: {
 					50: '#e0f7ff',

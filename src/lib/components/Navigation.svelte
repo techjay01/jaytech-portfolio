@@ -48,7 +48,7 @@
 			</a>
 
 			<!-- Desktop Navigation -->
-			<div class="hidden md:flex items-center gap-8">
+			<div class="hidden nav:flex items-center gap-8">
 				{#each navItems as item}
 					<a 
 						href={item.href}
@@ -70,7 +70,7 @@
 			<!-- Mobile Menu Button -->
 			<button
 				onclick={() => mobileMenuOpen = !mobileMenuOpen}
-				class="md:hidden p-2 rounded-lg glass border border-cyan-500/30">
+				class="nav:hidden p-2 rounded-lg glass border border-cyan-500/30">
 				<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					{#if mobileMenuOpen}
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -83,7 +83,7 @@
 
 		<!-- Mobile Menu -->
 		{#if mobileMenuOpen}
-			<div class="md:hidden py-4 glass mt-2 rounded-lg border border-cyan-500/30 animate-slide-in">
+			<div class="nav:hidden py-4 glass mt-2 rounded-lg border border-cyan-500/30 animate-slide-in">
 				{#each navItems as item}
 					<a 
 						href={item.href}
