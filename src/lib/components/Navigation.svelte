@@ -83,7 +83,7 @@
 
 		<!-- Mobile Menu -->
 		{#if mobileMenuOpen}
-			<div class="nav:hidden py-4 glass mt-2 rounded-lg border border-cyan-500/30 animate-slide-in">
+			<div class="nav:hidden py-4 glass mt-4 rounded-lg border border-cyan-500/30 animate-slide-in mb-4">
 				{#each navItems as item}
 					<a 
 						href={item.href}
