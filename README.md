@@ -1,12 +1,12 @@
-# 🚀 Joshua Mbamara - Interactive Developer Portfolio
+# Joshua Mbamara - Interactive Developer Portfolio
 
-[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](link goes here)
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://jaytech-portfolio-svelte.vercel.app/)
 [![Built with SvelteKit](https://img.shields.io/badge/built%20with-SvelteKit-FF3E00?logo=svelte)](https://kit.svelte.dev)
 [![Styled with Tailwind](https://img.shields.io/badge/styled%20with-Tailwind-38B2AC?logo=tailwind-css)](https://tailwindcss.com)
 
 A highly interactive, visually stunning developer portfolio built with SvelteKit featuring 3D animations, command palette navigation, and cinematic transitions.
 
-## 🎯 Project Overview
+## Project Overview
 
 This portfolio is designed to showcase frontend engineering skills through:
 - **Immersive Experience**: 3D floating geometric shapes with Three.js
@@ -15,9 +15,9 @@ This portfolio is designed to showcase frontend engineering skills through:
 - **Responsive Design**: Flawless experience across all devices
 - **Performance Optimized**: Lighthouse score of 95+
 
-## ✨ Features
+## Features
 
-### Core Requirements ✅
+### Core Requirements 
 
 #### 1. **Built with SvelteKit**
 - Svelte 5 with runes (`$state`, `$derived`, `$effect`)
@@ -86,7 +86,7 @@ This portfolio is designed to showcase frontend engineering skills through:
 - Dark mode optimized
 - Consistent color palette
 
-### 🔥 Creative Features
+### Creative Features
 
 #### 1. **3D / WebGL Integration**
 - **Three.js particle system** with floating geometric shapes
@@ -108,7 +108,7 @@ This portfolio is designed to showcase frontend engineering skills through:
 - Section transitions with fade and slide effects
 - Progress indicators
 
-## 🏗️ Architecture
+## Architecture
 
 ### Project Structure
 
@@ -158,7 +158,7 @@ jaytech-portfolio/
 - CommandPalette: Keyboard-driven navigation
 - ParticleBackground: Three.js integration
 
-## 🎨 Design Decisions
+## Design Decisions
 
 ### Animation Strategy
 
@@ -206,7 +206,7 @@ jaytech-portfolio/
 - JetBrains Mono: Code-like feel for developer portfolio
 - Inter: Clean and professional for body text
 
-## ⚡ Performance Optimization
+## Performance Optimization
 
 ### Techniques Used
 
@@ -237,7 +237,7 @@ jaytech-portfolio/
 - **Time to Interactive**: < 2.5s
 - **Cumulative Layout Shift**: < 0.1
 
-## ♿ Accessibility Considerations
+## Accessibility Considerations
 
 ### Implementation
 
@@ -266,7 +266,7 @@ jaytech-portfolio/
 - Screen reader tested with NVDA
 - Color contrast checked with WebAIM tool
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Core Technologies
 - **SvelteKit**: Full-stack framework
@@ -290,7 +290,7 @@ jaytech-portfolio/
 ### Contact
 - **EmailJS**: Client-side email delivery
 
-## 📦 Installation & Setup
+## Installation & Setup
 
 ### Prerequisites
 - Node.js 18+ and npm
@@ -327,7 +327,7 @@ PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
 
 Get these values from your [EmailJS dashboard](https://emailjs.com). If deploying to Vercel, add the same variables under **Project Settings → Environment Variables**.
 
-## 🚀 Deployment
+## Deployment
 
 ### Recommended Platforms
 - **Vercel** (Recommended)
@@ -351,7 +351,7 @@ vercel --prod
 
 The project uses `@sveltejs/adapter-auto` which automatically detects the deployment platform.
 
-## 🧪 Trade-offs & Decisions
+## Trade-offs & Decisions
 
 ### What Was Prioritized
 
@@ -374,7 +374,7 @@ The project uses `@sveltejs/adapter-auto` which automatically detects the deploy
    - Chose CSS over complex JavaScript animations
    - Prioritized smooth 60fps over elaborate effects
 
-## 📝 Future Enhancements
+## Future Enhancements
 
 ### Potential Additions
 
@@ -386,7 +386,7 @@ The project uses `@sveltejs/adapter-auto` which automatically detects the deploy
 6. **CMS Integration**: Dynamic content management
 7. **Advanced 3D**: More complex Three.js scenes
 
-## 🎯 Evaluation Checklist
+## Evaluation Checklist
 
 ✅ **Svelte/SvelteKit Implementation**: Svelte 5 with proper component structure  
 ✅ **UI/UX Polish**: Cyberpunk theme with consistent design  
@@ -399,11 +399,11 @@ The project uses `@sveltejs/adapter-auto` which automatically detects the deploy
 ✅ **Interaction Quality**: Hover states, smooth transitions, feedback  
 ✅ **Originality**: Unique cyberpunk aesthetic, not template-based  
 
-## 📄 License
+## License
 
 This project is open source and available under the MIT License.
 
-## 👨‍💻 Author
+## 👨Author
 
 **Joshua Mbamara**
 - GitHub: [@techjay01](https://github.com/techjay01)
@@ -413,4 +413,4 @@ This project is open source and available under the MIT License.
 
 ---
 
-**Built with ❤️ and lots of ☕ by Joshua Mbamara**
+**<Jay~Tech/>**
