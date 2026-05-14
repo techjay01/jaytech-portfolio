@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--color-primary: 0 217 255;
+		--color-secondary: 0 255 159;
+		--color-accent: 180 0 255;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		@apply bg-dark-900 text-gray-100;
+	}
+
+	* {
+		scrollbar-width: thin;
+		scrollbar-color: rgba(0, 217, 255, 0.5) rgba(26, 26, 38, 0.5);
+	}
+
+	*::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	*::-webkit-scrollbar-track {
+		background: rgba(26, 26, 38, 0.5);
+	}
+
+	*::-webkit-scrollbar-thumb {
+		background: rgba(0, 217, 255, 0.5);
+		border-radius: 4px;
+	}
+
+	*::-webkit-scrollbar-thumb:hover {
+		background: rgba(0, 217, 255, 0.7);
+	}
+}
+
+@layer components {
+	.text-gradient {
+		@apply bg-gradient-to-r from-neon-blue via-neon-green to-neon-purple bg-clip-text text-transparent;
+	}
+
+	.glow-text {
+		text-shadow: 0 0 10px rgba(0, 217, 255, 0.5),
+					 0 0 20px rgba(0, 217, 255, 0.3),
+					 0 0 30px rgba(0, 217, 255, 0.2);
+	}
+
+	.glass {
+		@apply bg-dark-800/30 backdrop-blur-xl border border-cyan-500/20;
+	}
+
+	.neon-border {
+		box-shadow: 0 0 5px rgba(0, 217, 255, 0.5),
+					inset 0 0 5px rgba(0, 217, 255, 0.2);
+	}
+
+	.cyber-grid {
+		background-image: 
+			linear-gradient(rgba(0, 217, 255, 0.03) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(0, 217, 255, 0.03) 1px, transparent 1px);
+		background-size: 50px 50px;
+	}
+}
+
+@layer utilities {
+	.animation-delay-200 {
+		animation-delay: 200ms;
+	}
+
+	.animation-delay-400 {
+		animation-delay: 400ms;
+	}
+
+	.animation-delay-600 {
+		animation-delay: 600ms;
+	}
+
+	.animation-delay-800 {
+		animation-delay: 800ms;
+	}
+}
+
+/* Custom animations */
+@keyframes scan-line {
+	0% {
+		transform: translateY(-100%);
+	}
+	100% {
+		transform: translateY(100vh);
+	}
+}
+
+.scan-line {
+	animation: scan-line 8s linear infinite;
+}
