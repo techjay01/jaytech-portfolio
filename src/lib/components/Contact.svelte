@@ -1,7 +1,5 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import emailjs from '@emailjs/browser';
-	import { PUBLIC_EMAILJS_SERVICE_ID, PUBLIC_EMAILJS_TEMPLATE_ID, PUBLIC_EMAILJS_PUBLIC_KEY } from '$env/static/public';
 
 	let isVisible = $state(false);
 	let sectionElement: HTMLElement;
@@ -38,22 +36,28 @@
 		return () => observer.disconnect();
 	});
 
+	import { PUBLIC_EMAILJS_SERVICE_ID, PUBLIC_EMAILJS_TEMPLATE_ID, PUBLIC_EMAILJS_PUBLIC_KEY } from '$env/static/public';
+	import emailjs from '@emailjs/browser';
+
+	function sanitize(str: string): string {
+		return str.trim().replace(/[<>]/g, '');
+	}
+
 	async function handleSubmit(e: Event) {
 		e.preventDefault();
 		formState = 'submitting';
-		
+
 		try {
 			await emailjs.send(
 				PUBLIC_EMAILJS_SERVICE_ID,
 				PUBLIC_EMAILJS_TEMPLATE_ID,
 				{
-					from_name: formData.name,
-					from_email: formData.email,
-					message: formData.message
+					from_name: sanitize(formData.name),
+					from_email: sanitize(formData.email),
+					message: sanitize(formData.message)
 				},
 				PUBLIC_EMAILJS_PUBLIC_KEY
 			);
-
 			formState = 'success';
 			formData = { name: '', email: '', message: '' };
 			setTimeout(() => formState = 'idle', 3000);
