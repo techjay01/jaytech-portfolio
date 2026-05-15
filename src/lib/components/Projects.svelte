@@ -12,57 +12,95 @@
 		github: string;
 		demo?: string;
 		category: string;
+		icon: string;
+		accent: string;
+		image?: string;
 	}
 
 	const projects: Project[] = [
 		{
-			title: 'Expense Tracker',
-			description: 'A comprehensive web app to manage expenses and visualize spending habits. Tracks income, expenses, and balance with intuitive charts and data visualization.',
-			tech: ['JavaScript', 'HTML', 'CSS', 'Chart.js'],
-			github: 'https://github.com/techjay01/Expense-Tracker',
-			category: 'web'
+			title: 'WhisperBox',
+			description: 'A secure real-time messaging app with true end-to-end encryption. RSA-OAEP + AES-GCM hybrid encryption via the Web Crypto API — the server never sees plaintext. Ever.',
+			tech: ['JavaScript', 'Web Crypto API', 'WebSockets', 'IndexedDB'],
+			github: 'https://github.com/techjay01/whisperbox',
+			demo: 'https://whisperbox-omega.vercel.app',
+			category: 'web',
+			icon: '🔐',
+			accent: '#7c6af7',
+			image: '/whisperbox.png'
 		},
 		{
-			title: 'Interactive Calculator',
-			description: 'A modern calculator that performs arithmetic operations with result history saving. Features clean UI and error handling for seamless calculations.',
-			tech: ['JavaScript', 'HTML', 'CSS'],
-			github: 'https://github.com/techjay01/Calculator',
-			category: 'web'
+			title: 'Nexus Terminal',
+			description: 'A real-time market analytics dashboard simulating live financial data streams with interactive charts, connection monitoring, event tracking, and terminal-style visualizations.',
+			tech: ['Vue', 'TypeScript', 'Pinia', 'Recharts'],
+			github: 'https://github.com/techjay01/nexus-terminal',
+			demo: 'https://nexus-terminal-pi.vercel.app/',
+			category: 'web',
+			icon: '📡',
+			accent: '#38bdf8',
+			image: '/nexus-terminal.png'
 		},
 		{
-			title: 'Mini Todo List',
-			description: 'Task management application for daily activities. Built to demonstrate JavaScript proficiency with CRUD operations and local storage.',
-			tech: ['JavaScript', 'HTML', 'CSS', 'LocalStorage'],
-			github: 'https://github.com/techjay01/Todo-List',
-			category: 'web'
+			title: 'Invoice Management App',
+			description: 'A fully responsive invoice management app with complete CRUD functionality, draft and payment flow, multi-status filtering, dark/light mode and data persistence via LocalStorage.',
+			tech: ['React', 'Vite', 'JavaScript', 'CSS Variables'],
+			github: 'https://github.com/techjay01/invoice-management-app',
+			demo: 'https://invoice-mgt.netlify.app',
+			category: 'web',
+			icon: '🧾',
+			accent: '#7C5DFA',
+			image: '/invoice-mgt-app.jpg'
 		},
 		{
-			title: 'Rock-Paper-Scissors Game',
-			description: 'Interactive game implementation with computer AI. Features score tracking, smooth animations, and error-free gameplay experience.',
-			tech: ['JavaScript', 'HTML', 'CSS'],
-			github: 'https://github.com/techjay01/Rock-Paper-Scissors',
-			category: 'game'
+			title: 'Habit Tracker PWA',
+			description: 'A mobile-first Progressive Web App for building daily habits. Features local auth, streak tracking, offline support via service worker, and a full automated test suite with 100% line coverage.',
+			tech: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Vitest', 'Playwright'],
+			github: 'https://github.com/techjay01/Habit-Tracker-PWA',
+			demo: 'https://jay-habit-tracker.vercel.app',
+			category: 'web',
+			icon: '✅',
+			accent: '#f09118',
+			image: '/habit-tracker-pwa.png'
 		},
 		{
-			title: 'Intermediate Form Project',
-			description: 'Professional form template with validation and user feedback. Demonstrates mastery of HTML5 form elements and JavaScript validation.',
-			tech: ['HTML5', 'CSS3', 'JavaScript'],
-			github: 'https://github.com/techjay01/Intermediate-Form',
-			category: 'web'
+			title: 'Summari — AI Page Summarizer',
+			description: 'A Chrome Extension (Manifest V3) that extracts and summarizes any webpage using Groq\'s Llama 3.3 70B. Delivers bullet points, key insights, reading time, word count, and in-page highlights instantly.',
+			tech: ['JavaScript', 'Chrome Extension', 'Manifest V3', 'Groq API', 'HTML', 'CSS'],
+			github: 'https://github.com/techjay01/ai-page-summarizer',
+			demo: 'https://www.loom.com/share/238f15c22b254a2290fcc4c3c4a51b8b',
+			category: 'extension',
+			icon: '🧠',
+			accent: '#F59E0B',
+			image: '/summari-extension.png'
+		},
+		{
+			title: 'Boogies Seafood',
+			description: 'A modern seafood restaurant website featuring an elegant UI, responsive layouts, smooth navigation, and visually rich sections designed to showcase meals, services, and brand identity.',
+			tech: ['HTML', 'CSS', 'JavaScript', 'Vercel'],
+			github: 'https://github.com/techjay01/boogies-seafood',
+			demo: 'https://boogies-seafood-gules.vercel.app/',
+			category: 'web',
+			icon: '🦞',
+			accent: '#ff6b35',
+			image: '/boogies-seafood.png'
 		},
 		{
 			title: 'Portfolio Hackathon',
 			description: 'Award-winning portfolio design from PLP Academy hackathon. Showcases creative design skills and modern web development techniques.',
 			tech: ['HTML', 'CSS', 'JavaScript'],
 			github: 'https://github.com/techjay01/PLP-Portfolio-Hackathon',
-			category: 'portfolio'
+			demo: 'https://jaytech-portfolio.vercel.app/',
+			category: 'portfolio',
+			icon: '🏆',
+			accent: '#00ff9f',
+			image: '/portfolio-hackathon.png'
 		}
 	];
 
 	const filters = [
 		{ label: 'All Projects', value: 'all' },
 		{ label: 'Web Apps', value: 'web' },
-		{ label: 'Games', value: 'game' },
+		{ label: 'Extensions', value: 'extension' },
 		{ label: 'Portfolio', value: 'portfolio' }
 	];
 
@@ -97,7 +135,7 @@
 		<!-- Section Header -->
 		<div class="mb-16 {isVisible ? 'animate-slide-in' : 'opacity-0'}">
 			<h2 class="text-4xl sm:text-5xl font-display font-bold mb-4">
-				<span class="text-neon-green font-mono"></span>
+				<span class="text-neon-green font-mono">03.</span>
 				<span class="text-gradient">Featured Projects</span>
 			</h2>
 			<div class="h-1 w-32 bg-gradient-to-r from-neon-blue to-neon-green"></div>
@@ -125,7 +163,32 @@
 					class="{isVisible ? 'animate-slide-in' : 'opacity-0'} animation-delay-{(index % 3) * 200}
 						   glass rounded-lg border border-cyan-500/30 overflow-hidden group hover:border-neon-blue transition-all duration-300 hover:scale-105">
 					
-					<!-- Project Header -->
+				<!-- Project Thumbnail -->
+				{#if project.image}
+					<img src={project.image} alt={project.title} class="w-full h-40 object-cover" />
+				{:else}
+					<div class="relative h-40 overflow-hidden flex items-center justify-center"
+						style="background: linear-gradient(135deg, #0a0a12 0%, #0d1117 100%);">
+						<svg class="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg">
+							<defs>
+								<pattern id="grid-{index}" width="20" height="20" patternUnits="userSpaceOnUse">
+									<path d="M 20 0 L 0 0 0 20" fill="none" stroke="{project.accent}" stroke-width="0.5"/>
+								</pattern>
+							</defs>
+							<rect width="100%" height="100%" fill="url(#grid-{index})"/>
+						</svg>
+						<div class="absolute w-24 h-24 rounded-full opacity-20 blur-2xl"
+							style="background: {project.accent}"></div>
+						<span class="relative text-5xl z-10 drop-shadow-lg">{project.icon}</span>
+						<div class="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 opacity-60" style="border-color: {project.accent}"></div>
+						<div class="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 opacity-60" style="border-color: {project.accent}"></div>
+						<div class="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 opacity-60" style="border-color: {project.accent}"></div>
+						<div class="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 opacity-60" style="border-color: {project.accent}"></div>
+						<div class="absolute inset-x-0 h-px opacity-40 animate-pulse" style="background: {project.accent}; top: 50%"></div>
+					</div>
+				{/if}
+
+				<!-- Project Header -->
 					<div class="p-6 border-b border-cyan-500/20">
 						<div class="flex items-start justify-between mb-4">
 							<h3 class="text-xl font-display font-bold group-hover:text-neon-blue transition-colors">
