@@ -17,6 +17,18 @@
 		message: ''
 	});
 
+	let errors = $state({ name: '', email: '', message: '' });
+
+	function validate(): boolean {
+		errors = { name: '', email: '', message: '' };
+		if (!formData.name.trim()) errors.name = 'Name is required';
+		if (!formData.email.trim()) errors.email = 'Email is required';
+		else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) errors.email = 'Invalid email address';
+		if (!formData.message.trim()) errors.message = 'Message is required';
+		else if (formData.message.trim().length < 10) errors.message = 'Message must be at least 10 characters';
+		return !errors.name && !errors.email && !errors.message;
+	}
+
 	onMount(() => {
 		const observer = new IntersectionObserver(
 			(entries) => {
@@ -45,6 +57,7 @@
 
 	async function handleSubmit(e: Event) {
 		e.preventDefault();
+		if (!validate()) return;
 		formState = 'submitting';
 
 		try {
@@ -170,10 +183,10 @@
 							id="name"
 							type="text"
 							bind:value={formData.name}
-							required
-							class="w-full px-4 py-3 bg-dark-800/50 border border-cyan-500/30 rounded-lg focus:border-neon-blue focus:outline-none transition-colors font-mono"
+							class="w-full px-4 py-3 bg-dark-800/50 border {errors.name ? 'border-red-500' : 'border-cyan-500/30'} rounded-lg focus:border-neon-blue focus:outline-none transition-colors font-mono"
 							placeholder="John Doe"
 						/>
+						{#if errors.name}<p class="text-red-400 font-mono text-xs mt-1">{errors.name}</p>{/if}
 					</div>
 
 					<div>
@@ -184,10 +197,10 @@
 							id="email"
 							type="email"
 							bind:value={formData.email}
-							required
-							class="w-full px-4 py-3 bg-dark-800/50 border border-cyan-500/30 rounded-lg focus:border-neon-blue focus:outline-none transition-colors font-mono"
+							class="w-full px-4 py-3 bg-dark-800/50 border {errors.email ? 'border-red-500' : 'border-cyan-500/30'} rounded-lg focus:border-neon-blue focus:outline-none transition-colors font-mono"
 							placeholder="john@example.com"
 						/>
+						{#if errors.email}<p class="text-red-400 font-mono text-xs mt-1">{errors.email}</p>{/if}
 					</div>
 
 					<div>
@@ -197,11 +210,11 @@
 						<textarea
 							id="message"
 							bind:value={formData.message}
-							required
 							rows="5"
-							class="w-full px-4 py-3 bg-dark-800/50 border border-cyan-500/30 rounded-lg focus:border-neon-blue focus:outline-none transition-colors font-mono resize-none"
+							class="w-full px-4 py-3 bg-dark-800/50 border {errors.message ? 'border-red-500' : 'border-cyan-500/30'} rounded-lg focus:border-neon-blue focus:outline-none transition-colors font-mono resize-none"
 							placeholder="Hi Joshua, I'd like to..."
 						></textarea>
+						{#if errors.message}<p class="text-red-400 font-mono text-xs mt-1">{errors.message}</p>{/if}
 					</div>
 
 					<button
