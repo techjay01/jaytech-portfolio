@@ -135,7 +135,7 @@
 		<!-- Section Header -->
 		<div class="mb-16 {isVisible ? 'animate-slide-in' : 'opacity-0'}">
 			<h2 class="text-4xl sm:text-5xl font-display font-bold mb-4">
-				<span class="text-neon-green font-mono">03.</span>
+				<span class="text-neon-green font-mono"></span>
 				<span class="text-gradient">Featured Projects</span>
 			</h2>
 			<div class="h-1 w-32 bg-gradient-to-r from-neon-blue to-neon-green"></div>
@@ -165,7 +165,7 @@
 					
 				<!-- Project Thumbnail -->
 				{#if project.image}
-					<img src={project.image} alt={project.title} class="w-full h-40 object-cover" />
+					<img src={project.image} alt={project.title} class="w-full h-40 object-cover" loading="lazy" width="400" height="160" />
 				{:else}
 					<div class="relative h-40 overflow-hidden flex items-center justify-center"
 						style="background: linear-gradient(135deg, #0a0a12 0%, #0d1117 100%);">
