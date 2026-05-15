@@ -53,7 +53,8 @@
 				PUBLIC_EMAILJS_TEMPLATE_ID,
 				{
 					from_name: sanitize(formData.name),
-					from_email: sanitize(formData.email),
+					email: sanitize(formData.email),
+					subject: 'Portfolio Contact Form',
 					message: sanitize(formData.message)
 				},
 				PUBLIC_EMAILJS_PUBLIC_KEY

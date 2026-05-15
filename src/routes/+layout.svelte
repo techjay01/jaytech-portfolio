@@ -24,6 +24,9 @@
 </script>
 
 <div class="min-h-screen bg-dark-900 text-gray-100 relative overflow-hidden">
+	<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-cyan-500 focus:text-black focus:font-mono focus:font-bold focus:rounded">
+		Skip to main content
+	</a>
 	<!-- Particle Background -->
 	<ParticleBackground />
 
@@ -39,7 +42,7 @@
 	<Navigation bind:showCommandPalette />
 
 	<!-- Main Content -->
-	<main class="relative z-10">
+	<main id="main-content" class="relative z-10">
 		{@render children()}
 	</main>
 

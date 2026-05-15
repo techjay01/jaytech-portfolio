@@ -99,3 +99,18 @@
 .scan-line {
 	animation: scan-line 8s linear infinite;
 }
+
+@media (prefers-reduced-motion: reduce) {
+	*, *::before, *::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+/* Focus states */
+:focus-visible {
+	outline: 2px solid #00d9ff;
+	outline-offset: 3px;
+	border-radius: 2px;
+}
