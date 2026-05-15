@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte';
 	import CommandPalette from '$lib/components/CommandPalette.svelte';
 	import Navigation from '$lib/components/Navigation.svelte';
+	import AIAssistant from '$lib/components/AIAssistant.svelte';
 	import ParticleBackground from '$lib/components/ParticleBackground.svelte';
 	import type { Snippet } from 'svelte';
 
@@ -50,6 +51,7 @@
 	{#if showCommandPalette}
 		<CommandPalette bind:show={showCommandPalette} />
 	{/if}
+	<AIAssistant />
 
 	<!-- Footer -->
 	<footer class="relative z-10 border-t border-cyan-500/20 mt-20">
