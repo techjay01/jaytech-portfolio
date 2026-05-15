@@ -214,7 +214,9 @@
 							</span>
 						{:else if formState === 'success'}
 							✓ Message Sent!
-						{:else}
+						{:else if formState === 'error'}
+								✗ Failed. Try Again
+							{:else}
 							Send Message
 						{/if}
 					</button>
@@ -222,6 +224,12 @@
 					{#if formState === 'success'}
 						<div class="p-4 bg-neon-green/10 border border-neon-green/30 rounded-lg font-mono text-sm text-neon-green animate-fade-in">
 							Thanks for reaching out! I'll get back to you soon.
+						</div>
+					{/if}
+
+					{#if formState === 'error'}
+						<div class="p-4 bg-red-500/10 border border-red-500/30 rounded-lg font-mono text-sm text-red-400 animate-fade-in">
+							Something went wrong. Please try again or email me directly at techjay2023@gmail.com
 						</div>
 					{/if}
 				</form>
