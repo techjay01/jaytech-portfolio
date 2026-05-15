@@ -1,13 +1,30 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import gsap from 'gsap';
 
 	let isVisible = $state(false);
 	let typedText = $state('');
 	const fullText = 'Software Engineer';
 	let charIndex = $state(0);
 
+	let heroTitle: HTMLElement;
+	let heroName: HTMLElement;
+	let heroTyping: HTMLElement;
+	let heroDesc: HTMLElement;
+	let heroCta: HTMLElement;
+	let heroSocial: HTMLElement;
+
 	onMount(() => {
 		isVisible = true;
+
+		// GSAP entrance timeline
+		const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+		tl.fromTo(heroTitle, { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.7 })
+		  .fromTo(heroName, { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.3')
+		  .fromTo(heroTyping, { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.5 }, '-=0.2')
+		  .fromTo(heroDesc, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 }, '-=0.1')
+		  .fromTo(heroCta, { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.4 }, '-=0.1')
+		  .fromTo(heroSocial, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }, '-=0.1');
 
 		// Typing animation
 		const typeInterval = setInterval(() => {
@@ -33,19 +50,19 @@
 <section id="home" class="min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8 pt-16">
 	<div class="max-w-4xl mx-auto text-center">
 		<!-- Animated Title -->
-		<div class="mb-6 {isVisible ? 'animate-slide-in' : 'opacity-0'}">
+		<div bind:this={heroTitle} class="mb-6 opacity-0">
 			<h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4">
 				<span class="text-neon-blue glow-text">&lt;</span>
 				<span class="text-gradient">Jay~Tech</span>
 				<span class="text-neon-blue glow-text">/&gt;</span>
 			</h1>
-			<div class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-neon-green mb-6">
+			<div bind:this={heroName} class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-neon-green mb-6 opacity-0">
 				JOSHUA MBAMARA
 			</div>
 		</div>
 
 		<!-- Typing Animation -->
-		<div class="{isVisible ? 'animate-fade-in animation-delay-400' : 'opacity-0'} mb-8">
+		<div bind:this={heroTyping} class="opacity-0 mb-8">
 			<div class="text-xl sm:text-2xl md:text-3xl font-mono text-gray-300">
 				<span class="text-neon-blue">&gt;</span>
 				<span class="ml-2">{typedText}</span>
@@ -54,7 +71,7 @@
 		</div>
 
 		<!-- Description -->
-		<div class="{isVisible ? 'animate-slide-in animation-delay-600' : 'opacity-0'} mb-10">
+		<div bind:this={heroDesc} class="opacity-0 mb-10">
 			<p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
 				Front-End Developer crafting <span class="text-neon-blue">scalable</span>, 
 				<span class="text-neon-green">responsive</span>, and 
@@ -64,7 +81,7 @@
 		</div>
 
 		<!-- CTA Buttons -->
-		<div class="{isVisible ? 'animate-fade-in animation-delay-800' : 'opacity-0'} flex flex-wrap gap-4 justify-center">
+		<div bind:this={heroCta} class="opacity-0 flex flex-wrap gap-4 justify-center">
 			<button
 				onclick={scrollToContact}
 				class="group relative px-8 py-4 bg-transparent border-2 border-neon-blue rounded-lg font-mono overflow-hidden
@@ -84,7 +101,7 @@
 		</div>
 
 		<!-- Social Links -->
-		<div class="{isVisible ? 'animate-fade-in animation-delay-800' : 'opacity-0'} flex justify-center gap-6 mt-12">
+		<div bind:this={heroSocial} class="opacity-0 flex justify-center gap-6 mt-12">
 			<a href="https://github.com/techjay01" aria-label="GitHub" target="_blank" rel="noopener" 
 			   class="text-gray-400 hover:text-neon-blue transition-all duration-300 hover:scale-110">
 				<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

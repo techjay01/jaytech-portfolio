@@ -1,33 +1,37 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import gsap from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-	let isVisible = $state(false);
 	let sectionElement: HTMLElement;
+	let aboutHeader: HTMLElement;
+	let aboutText: HTMLElement;
+	let aboutCard: HTMLElement;
 
 	onMount(() => {
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						isVisible = true;
-					}
-				});
+		gsap.registerPlugin(ScrollTrigger);
+
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: sectionElement,
+				start: 'top 80%',
+				once: true
 			},
-			{ threshold: 0.1 }
-		);
+			defaults: { ease: 'power3.out' }
+		});
 
-		if (sectionElement) {
-			observer.observe(sectionElement);
-		}
+		tl.fromTo(aboutHeader, { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.6 })
+		  .fromTo(aboutText, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.6 }, '-=0.2')
+		  .fromTo(aboutCard, { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.6 }, '-=0.4');
 
-		return () => observer.disconnect();
+		return () => ScrollTrigger.getAll().forEach(t => t.kill());
 	});
 </script>
 
 <section id="about" bind:this={sectionElement} class="py-20 px-4 sm:px-6 lg:px-8 relative">
 	<div class="max-w-4xl mx-auto">
 		<!-- Section Header -->
-		<div class="mb-16 {isVisible ? 'animate-slide-in' : 'opacity-0'}">
+		<div bind:this={aboutHeader} class="mb-16 opacity-0">
 			<h2 class="text-4xl sm:text-5xl font-display font-bold mb-4">
 				<span class="text-neon-green font-mono"></span>
 				<span class="text-gradient">About Me</span>
@@ -38,7 +42,7 @@
 		<!-- Content Grid -->
 		<div class="grid md:grid-cols-2 gap-12 items-center">
 			<!-- Text Content -->
-			<div class="{isVisible ? 'animate-fade-in animation-delay-200' : 'opacity-0'}">
+			<div bind:this={aboutText} class="opacity-0">
 				<p class="text-gray-300 leading-relaxed mb-6">
 					Hello! I'm <span class="text-neon-blue font-semibold">Mbamara Joshua</span>, 
 					a passionate developer with a love for building creative solutions and exploring new technologies.
@@ -69,7 +73,7 @@
 			</div>
 
 			<!-- Visual Element -->
-			<div class="{isVisible ? 'animate-slide-in animation-delay-400' : 'opacity-0'}">
+			<div bind:this={aboutCard} class="opacity-0">
 				<div class="relative">
 					<div class="glass p-8 rounded-lg border border-cyan-500/30">
 						<div class="space-y-4 font-mono text-sm">
