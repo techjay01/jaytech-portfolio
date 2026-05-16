@@ -162,7 +162,7 @@
 						class="flex-1 bg-transparent outline-none text-lg font-mono placeholder:text-gray-500"
 						onkeydown={handleKeydown}
 					/>
-					<kbd class="px-2 py-1 text-xs font-mono bg-dark-700 rounded border border-cyan-500/30">ESC</kbd>
+					<kbd class="px-2 py-1 text-xs font-mono text-gray-400 bg-dark-700 rounded border border-cyan-500/30">ESC</kbd>
 				</div>
 			</div>
 

@@ -10,20 +10,24 @@
 			skills: [
 				{ name: 'HTML/CSS', level: 95, icon: '🎨' },
 				{ name: 'JavaScript', level: 70, icon: '⚡' },
+				{ name: 'Tailwind CSS', level: 70, icon: '🎯' },
 				{ name: 'React', level: 50, icon: '⚛️' },
-				{ name: 'Svelte', level: 40, icon: '🔥' },
-				{ name: 'TypeScript', level: 50, icon: '📘' },
-				{ name: 'Tailwind CSS', level: 70, icon: '🎯' }
+				{ name: 'Next.js', level: 40, icon: '⏭️' },
+				{ name: 'Vue.js', level: 40, icon: '🖼️' },
+				{ name: 'Svelte', level: 35, icon: '🔥' },
+				{ name: 'TypeScript', level: 60, icon: '📘' }
 			]
 		},
 		{
 			title: 'Backend & Tools',
 			skills: [
+				{ name: 'Git/GitHub', level: 85, icon: '🔧' },
 				{ name: 'Python', level: 40, icon: '🐍' },
 				{ name: 'Java', level: 40, icon: '☕' },
-				{ name: 'Git/GitHub', level: 85, icon: '🔧' },
-				{ name: 'Visual Basic', level: 10, icon: '💻' },
-				{ name: 'PASCAL', level: 15, icon: '📚' }
+				{ name: 'Vitest', level: 50, icon: '💻' },
+				{ name: 'Three.js', level: 30, icon: '3️⃣' },
+				{ name: 'Chart.js', level: 35, icon: '📊' },
+				{ name: 'APIs', level: 50, icon: '📚' }
 			]
 		}
 	];
@@ -101,7 +105,7 @@
 				<span class="text-neon-purple">Also Familiar With</span>
 			</h3>
 			<div class="flex flex-wrap justify-center gap-3">
-				{#each ['C++', 'Node.js', 'RESTful APIs', 'Responsive Design', 'Web Performance', 'UI/UX Design', 'Problem Solving'] as tech}
+				{#each ['Node.js', 'RESTful APIs', 'Responsive Design', 'UI/UX Design', 'Graphics Design', 'Adobe Photoshop', 'Microsoft Office', 'Meta Ads', 'Problem Solving'] as tech}
 					<span class="px-4 py-2 glass rounded-lg border border-purple-500/30 text-sm font-mono hover:border-neon-purple hover:scale-105 transition-all duration-300 cursor-default">
 						{tech}
 					</span>
