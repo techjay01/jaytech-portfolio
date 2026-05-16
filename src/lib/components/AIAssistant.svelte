@@ -173,7 +173,7 @@ Keep answers short (2-4 sentences max). Be friendly and use occasional tech emoj
 <!-- Chat Window -->
 {#if isOpen}
 	<div
-		class="fixed bottom-24 right-6 z-[60] w-80 sm:w-96 rounded-2xl overflow-hidden shadow-2xl"
+		class="ai-chat-window fixed bottom-24 right-6 z-[60] w-80 sm:w-96 rounded-2xl overflow-hidden shadow-2xl"
 		style="border: 1px solid rgba(0,217,255,0.3); background: rgba(10,10,18,0.97); backdrop-filter: blur(20px); box-shadow: 0 0 40px rgba(0,217,255,0.15);"
 	>
 		<!-- Header -->
@@ -195,10 +195,10 @@ Keep answers short (2-4 sentences max). Be friendly and use occasional tech emoj
 			{#each messages as message}
 				<div class="flex {message.role === 'user' ? 'justify-end' : 'justify-start'}">
 					<div
-						class="max-w-[80%] px-3 py-2 rounded-xl text-xs leading-relaxed"
+						class="max-w-[80%] px-3 py-2 rounded-xl text-xs leading-relaxed msg-bubble"
 						style={message.role === 'user'
-							? 'background: rgba(0,217,255,0.15); border: 1px solid rgba(0,217,255,0.3); color: #e2e8f0;'
-							: 'background: rgba(0,255,159,0.08); border: 1px solid rgba(0,255,159,0.2); color: #e2e8f0;'}
+							? 'background: rgba(0,217,255,0.15); border: 1px solid rgba(0,217,255,0.3);'
+							: 'background: rgba(0,255,159,0.08); border: 1px solid rgba(0,255,159,0.2);'}
 					>
 						{message.content}
 					</div>

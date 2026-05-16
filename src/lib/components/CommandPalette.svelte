@@ -17,7 +17,7 @@
 
 	let searchQuery = $state('');
 	let selectedIndex = $state(0);
-	let inputElement: HTMLInputElement = $state()!;
+	let inputElement: HTMLInputElement = $state()!
 
 	const commands: Command[] = [
 		{
@@ -182,7 +182,7 @@
 						>
 							<span class="text-2xl">{command.icon}</span>
 							<div class="flex-1">
-								<div class="font-mono font-medium text-sm group-hover:text-neon-blue transition-colors">
+								<div class="font-mono font-medium text-sm text-gray-200 group-hover:text-neon-blue transition-colors">
 									{command.label}
 								</div>
 								<div class="text-xs text-gray-400 mt-0.5">
