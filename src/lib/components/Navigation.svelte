@@ -9,6 +9,13 @@
 	
 	let scrolled = $state(false);
 	let mobileMenuOpen = $state(false);
+	let isLight = $state(false);
+
+	function toggleTheme() {
+		isLight = !isLight;
+		document.documentElement.classList.toggle('light', isLight);
+		localStorage.setItem('theme', isLight ? 'light' : 'dark');
+	}
 
 	const navItems = [
 		{ label: 'Home', href: '#home' },
@@ -19,6 +26,11 @@
 	];
 
 	onMount(() => {
+		const saved = localStorage.getItem('theme');
+		if (saved === 'light') {
+			isLight = true;
+			document.documentElement.classList.add('light');
+		}
 		const handleScroll = () => {
 			scrolled = window.scrollY > 50;
 		};
@@ -61,24 +73,48 @@
 				{/each}
 				
 				<button
+					onclick={toggleTheme}
+					aria-label="Toggle theme"
+					class="flex items-center justify-center w-9 h-9 glass rounded-lg border border-cyan-500/30 hover:border-cyan-500 transition-all duration-300">
+					{#if isLight}
+						<svg class="w-5 h-5" fill="black" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg>
+					{:else}
+						<svg class="w-5 h-5" fill="white" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path stroke="white" stroke-width="2" stroke-linecap="round" d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+					{/if}
+				</button>
+
+				<button
 					onclick={() => showCommandPalette = !showCommandPalette}
 					class="flex items-center gap-2 px-4 py-2 glass rounded-lg border border-cyan-500/30 hover:border-cyan-500 transition-all duration-300 group">
 					<span class="text-xs font-mono text-gray-400 group-hover:text-neon-blue">CMD+K</span>
 				</button>
 			</div>
 
-			<!-- Mobile Menu Button -->
-			<button
-				onclick={() => mobileMenuOpen = !mobileMenuOpen}
-				class="nav:hidden p-2 rounded-lg glass border border-cyan-500/30">
-				<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					{#if mobileMenuOpen}
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+			<!-- Mobile: Theme toggle + Hamburger -->
+			<div class="nav:hidden flex items-center gap-2">
+				<button
+					onclick={toggleTheme}
+					aria-label="Toggle theme"
+					class="flex items-center justify-center w-9 h-9 glass rounded-lg border border-cyan-500/30 hover:border-cyan-500 transition-all duration-300">
+					{#if isLight}
+						<svg class="w-5 h-5" fill="black" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg>
 					{:else}
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+						<svg class="w-5 h-5" fill="white" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path stroke="white" stroke-width="2" stroke-linecap="round" d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
 					{/if}
-				</svg>
-			</button>
+				</button>
+				<button
+					onclick={() => mobileMenuOpen = !mobileMenuOpen}
+					aria-label="Toggle menu"
+					class="p-2 rounded-lg glass border border-cyan-500/30">
+					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						{#if mobileMenuOpen}
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+						{:else}
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+						{/if}
+					</svg>
+				</button>
+			</div>
 		</div>
 
 		<!-- Mobile Menu -->
