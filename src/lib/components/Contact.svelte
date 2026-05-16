@@ -82,25 +82,25 @@
 
 	const contactMethods = [
 		{
-			icon: '📧',
+			image: '/mail-01-stroke-rounded.png',
 			label: 'Email',
 			value: 'techjay2023@gmail.com',
 			link: 'mailto:techjay2023@gmail.com'
 		},
 		{
-			icon: '💼',
+			image: '/linkedin-02-stroke-rounded.png',
 			label: 'LinkedIn',
 			value: 'jaytech01',
 			link: 'https://www.linkedin.com/in/jaytech01'
 		},
 		{
-			icon: '🐙',
+			image: '/github-01-stroke-rounded.png',
 			label: 'GitHub',
 			value: 'techjay01',
 			link: 'https://github.com/techjay01'
 		},
 		{
-			icon: '🐦',
+			image: '/new-twitter-stroke-rounded.png',
 			label: 'Twitter',
 			value: '@techjay01',
 			link: 'https://x.com/techjay01'
@@ -137,7 +137,7 @@
 							target="_blank"
 							rel="noopener"
 							class="flex items-center gap-4 p-4 glass rounded-lg border border-cyan-500/30 hover:border-neon-blue transition-all duration-300 group">
-							<span class="text-3xl">{method.icon}</span>
+							<img src={method.image} alt={method.label} class="text-3xl" />
 							<div>
 								<div class="font-mono text-sm text-gray-400">{method.label}</div>
 								<div class="font-mono text-neon-green group-hover:text-neon-blue transition-colors">

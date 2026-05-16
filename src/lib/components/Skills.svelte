@@ -8,26 +8,26 @@
 		{
 			title: 'Frontend',
 			skills: [
-				{ name: 'HTML/CSS', level: 95, icon: '🎨' },
-				{ name: 'JavaScript', level: 70, icon: '⚡' },
-				{ name: 'Tailwind CSS', level: 70, icon: '🎯' },
-				{ name: 'React', level: 50, icon: '⚛️' },
-				{ name: 'Next.js', level: 40, icon: '⏭️' },
-				{ name: 'Vue.js', level: 40, icon: '🖼️' },
-				{ name: 'Svelte', level: 35, icon: '🔥' },
-				{ name: 'TypeScript', level: 60, icon: '📘' }
+				{ name: 'HTML/CSS', level: 95 },
+				{ name: 'JavaScript', level: 70 },
+				{ name: 'Tailwind CSS', level: 70 },
+				{ name: 'React', level: 50 },
+				{ name: 'Next.js', level: 40 },
+				{ name: 'Vue.js', level: 40 },
+				{ name: 'Svelte', level: 35 },
+				{ name: 'TypeScript', level: 60 }
 			]
 		},
 		{
 			title: 'Backend & Tools',
 			skills: [
-				{ name: 'Git/GitHub', level: 85, icon: '🔧' },
-				{ name: 'Python', level: 40, icon: '🐍' },
-				{ name: 'Java', level: 40, icon: '☕' },
-				{ name: 'Vitest', level: 50, icon: '💻' },
-				{ name: 'Three.js', level: 30, icon: '3️⃣' },
-				{ name: 'Chart.js', level: 35, icon: '📊' },
-				{ name: 'APIs', level: 50, icon: '📚' }
+				{ name: 'Git/GitHub', level: 85 },
+				{ name: 'Python', level: 40 },
+				{ name: 'Java', level: 40 },
+				{ name: 'Vitest', level: 50 },
+				{ name: 'Three.js', level: 30 },
+				{ name: 'Chart.js', level: 35 },
+				{ name: 'APIs', level: 50 }
 			]
 		}
 	];
@@ -77,7 +77,6 @@
 								<div class="group">
 									<div class="flex justify-between mb-2">
 										<span class="font-mono text-sm flex items-center gap-2">
-											<span class="text-xl">{skill.icon}</span>
 											{skill.name}
 										</span>
 										<span class="font-mono text-sm text-neon-green">
